@@ -115,4 +115,40 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
+
+  /* ---------- Mapa interactivo (Leaflet) ---------- */
+  var mapEl = document.getElementById('map');
+  if (mapEl && window.L) {
+    L.Icon.Default.imagePath = 'assets/vendor/leaflet/images/';
+
+    var map = L.map(mapEl, {
+      center: [-26.9, -54.35],   // centro aproximado de Misiones
+      zoom: 7,
+      minZoom: 5,
+      maxZoom: 16,
+      scrollWheelZoom: false,     // se activa al hacer clic (no secuestra el scroll)
+      attributionControl: true
+    });
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; colaboradores de <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.marker([-27.366, -55.896]).addTo(map)
+      .bindPopup('<strong>Posadas</strong><br>Capital provincial');
+    L.marker([-25.599, -54.578]).addTo(map)
+      .bindPopup('<strong>Puerto Iguazú</strong><br>Parque Nacional Iguazú');
+
+    map.on('focus', function () { map.scrollWheelZoom.enable(); });
+    map.on('blur', function () { map.scrollWheelZoom.disable(); });
+
+    // Al entrar en viewport el contenedor puede haber cambiado de tamaño.
+    if ('IntersectionObserver' in window) {
+      var mo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { map.invalidateSize(); mo.disconnect(); } });
+      });
+      mo.observe(mapEl);
+    }
+  }
 })();

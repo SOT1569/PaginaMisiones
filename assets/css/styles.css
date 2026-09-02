@@ -106,10 +106,10 @@ h1, h2, h3 {
 .brand { display: flex; align-items: center; text-decoration: none; color: inherit; }
 .brand-logo { height: clamp(30px, 2.4vw + 1rem, 40px); width: auto; display: block; }
 
-.site-nav { display: flex; gap: 1.6rem; }
+.site-nav { display: flex; gap: 1.15rem; }
 .site-nav a {
-  text-decoration: none; color: var(--texto); font-weight: 500; font-size: .95rem;
-  padding: .3rem 0; position: relative;
+  text-decoration: none; color: var(--texto); font-weight: 500; font-size: .92rem;
+  padding: .3rem 0; position: relative; white-space: nowrap;
 }
 .site-nav a::after {
   content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
@@ -195,6 +195,21 @@ h1, h2, h3 {
 }
 .stat-label { display: block; margin-top: .6rem; color: var(--texto-suave); font-size: .98rem; }
 
+/* ---------- Mapa ---------- */
+.map {
+  height: clamp(360px, 55vh, 560px);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  box-shadow: var(--shadow);
+  background: var(--verde-bg);
+  isolation: isolate; /* mantiene los controles del mapa por debajo del header */
+}
+.map .leaflet-container { font: inherit; background: var(--verde-bg); }
+.map .leaflet-popup-content { font-family: var(--font-body); }
+.map .leaflet-bar a { color: var(--verde-oscuro); }
+#mapa .note { margin-top: 1rem; border: 0; padding-left: 0; font-size: .85rem; }
+
 /* ---------- Split (texto + imagen) ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .split.reverse .split-media { order: 2; }
@@ -279,7 +294,7 @@ img.img-missing[data-img="areas"]::after { color: rgba(255,255,255,.85); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   .nav-toggle { display: block; }
   .site-nav {
     position: absolute; top: 100%; left: 0; right: 0;
@@ -289,6 +304,9 @@ img.img-missing[data-img="areas"]::after { color: rgba(255,255,255,.85); }
   }
   .site-nav.open { display: flex; }
   .site-nav a { padding: .85rem 0; border-bottom: 1px solid var(--verde-section-b); }
+}
+
+@media (max-width: 860px) {
   .split { grid-template-columns: 1fr; }
   .split.reverse .split-media { order: 0; }
 }

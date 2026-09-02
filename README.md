@@ -9,11 +9,19 @@ silvestre).
 HTML + CSS + JavaScript, sin framework ni build. Se sirve tal cual con GitHub Pages.
 
 ```
-index.html            Página completa (una sola vista)
-assets/css/styles.css Estilos
-assets/js/main.js      Menú móvil, contadores, animaciones, marcadores de imagen
-assets/img/            Imágenes (ver assets/img/IMAGENES.md)
+index.html              Página completa (una sola vista)
+assets/css/styles.css   Estilos
+assets/js/main.js       Menú móvil, contadores, animaciones, marcadores de imagen, mapa
+assets/img/             Imágenes (ver assets/img/IMAGENES.md)
+assets/vendor/leaflet/  Librería Leaflet 1.9.4 (mapa interactivo), servida localmente
 ```
+
+## Mapa
+
+La sección "Misiones en el mapa" usa [Leaflet](https://leafletjs.com/) (incluido en
+`assets/vendor/leaflet/`, sin CDN). Los mosaicos vienen de OpenStreetMap en tiempo
+real. Para tráfico alto conviene pasar a un proveedor con plan pago (MapTiler, Carto,
+Stadia) cambiando la URL del `L.tileLayer` en `assets/js/main.js`.
 
 ## Ver en local
 
