@@ -346,16 +346,19 @@
         <p class="kicker">Video</p>
         <h2>Misiones en movimiento</h2>
       </header>
-      <!-- Cuando esté el video de YouTube, reemplazar este bloque por:
-      <div class="video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/ID_DEL_VIDEO"
-                title="Video institucional de Misiones" loading="lazy" allowfullscreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-      </div>
+
+      <!--
+        Para activar el video: escribí el ID de YouTube (11 caracteres, lo que va
+        después de "watch?v=") en data-youtube. Mientras esté vacío se muestra el
+        recuadro "en preparación".
+        Se ve una portada propia (assets/img/video-portada.jpg) con un botón de
+        reproducir; recién al hacer clic carga el reproductor de YouTube.
       -->
-      <div class="video-frame">
-        <span class="video-frame-icon" aria-hidden="true">►</span>
-        <p>Contenido audiovisual en preparación.</p>
+      <div class="video" data-youtube="" data-title="Video institucional de Misiones">
+        <div class="video-frame">
+          <span class="video-frame-icon" aria-hidden="true">►</span>
+          <p>Contenido audiovisual en preparación.</p>
+        </div>
       </div>
     </div>
   </section>

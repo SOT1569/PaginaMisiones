@@ -81,7 +81,7 @@
   /* ---------- Reveal + disparo de contadores ---------- */
   var revealTargets = document.querySelectorAll(
     '.section-head, .feature-media, .feature-text, .intro-block, .stat, ' +
-    '.species-card, .on-dark, .video-frame, .video-embed, .closing .wrap'
+    '.species-card, .on-dark, #video .video, .closing .wrap'
   );
 
   if ('IntersectionObserver' in window && !reduceMotion) {
@@ -105,6 +105,43 @@
     document.querySelectorAll('.stat-num[data-count]').forEach(function (el) {
       el.textContent = formatNum(parseInt(el.dataset.count, 10) || 0) + (el.dataset.suffix || '');
     });
+  }
+
+  /* ---------- Video de YouTube (con portada propia) ----------
+     Solo se carga el reproductor de YouTube cuando el visitante hace clic.
+     Hasta entonces se ve una portada propia + botón de play, sin nada de
+     YouTube (ni nombre de canal, ni "ver en YouTube", ni cookies).          */
+  var videoBox = document.querySelector('.video[data-youtube]');
+  if (videoBox) {
+    var ytId = (videoBox.dataset.youtube || '').trim();
+    if (ytId) {
+      var ytTitle = videoBox.dataset.title || 'Video';
+
+      var facade = document.createElement('button');
+      facade.type = 'button';
+      facade.className = 'video-facade';
+      facade.setAttribute('aria-label', 'Reproducir el video: ' + ytTitle);
+      facade.innerHTML =
+        '<img class="video-poster" alt="" src="assets/img/video-portada.jpg" ' +
+        'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/' + ytId + '/hqdefault.jpg\'">' +
+        '<span class="video-play" aria-hidden="true"></span>';
+
+      videoBox.innerHTML = '';
+      videoBox.appendChild(facade);
+
+      facade.addEventListener('click', function () {
+        var embed = document.createElement('div');
+        embed.className = 'video-embed';
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId +
+          '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+        iframe.title = ytTitle;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.setAttribute('allowfullscreen', '');
+        embed.appendChild(iframe);
+        videoBox.replaceChild(embed, facade);
+      });
+    }
   }
 
   /* ---------- Sombra del header al hacer scroll ---------- */

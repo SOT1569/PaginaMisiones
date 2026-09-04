@@ -38,5 +38,14 @@ volvió a ser texto.
 
 ## Video
 
-Va en la sección “Video”. Subilo a YouTube y pasá el ID; se reemplaza el bloque
-`.video-frame` de `index.html` por el `<iframe>` (ya está el ejemplo comentado ahí).
+Va en la sección “Video”. En `index.html`, en `<div class="video" data-youtube="">`,
+poné el **ID de YouTube** (los 11 caracteres después de `watch?v=`) dentro de las
+comillas. Listo.
+
+- Antes de que el visitante haga clic no se ve nada de YouTube: solo una portada y
+  un botón de play.
+- Portada: subí `video-portada.jpg` (16:9, ~1600 px). Si no está, usa la miniatura
+  automática de YouTube.
+- Nota: cuando el video ya está reproduciéndose, YouTube muestra el título y el
+  nombre del canal arriba al pasar el mouse. Eso no se puede sacar de un embed de
+  YouTube. Si hace falta que no aparezca **nada** del que subió, usar Vimeo.
