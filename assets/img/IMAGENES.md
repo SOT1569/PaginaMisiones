@@ -7,29 +7,29 @@ texto “imagen pendiente” en su lugar — no se rompe nada.
 Formato recomendado: **JPG** optimizado (calidad ~80), ancho máximo 2000 px, peso < 400 KB.
 Para las fichas de especies alcanza con 800×800 px.
 
-## Faltan / hay que cambiar
+## Falta (opcional)
 
 | Archivo | Dónde aparece | Proporción | Estado |
 |---|---|---|---|
-| `hero.jpg` | Fondo de portada | 16:9 apaisada, ~2000 px | **Cambiar** por la nueva del Drive |
-| `selva-paranaense.jpg` | Sección “El corazón verde de Misiones” | 16:9 apaisada | **Cambiar** por la nueva del Drive |
-| `cataratas-iguazu.jpg` | Foto grande de la sección “Cataratas del Iguazú” | 16:9 apaisada | **Falta** (del Drive) |
-| `especie-lapacho.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — lapacho negro |
-| `especie-palo-rosa.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — palo rosa |
-| `especie-araucaria.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — araucaria misionera |
-| `og-image.jpg` | Miniatura al compartir en redes / WhatsApp | 1200×630 px | **Falta** (puede ser `hero.jpg` recortada) |
+| `og-image.jpg` | Miniatura al compartir en redes / WhatsApp | 1200×630 px | Puede ser `hero.jpg` recortada |
+| `video-portada.jpg` | Portada del reproductor de video | 16:9, ~1600 px | Si falta, usa la miniatura de YouTube |
 
-## Ya están
+## Ya están (todas las de contenido)
 
-`especie-yaguarete.jpg`, `especie-tapir.jpg`, `especie-mono-caraya.jpg`,
-`especie-oso-hormiguero.jpg`, `especie-pecari.jpg`, `especie-aguila-harpia.jpg`,
-`especie-tucan.jpg`, `especie-maracana.jpg`, `favicon.svg`.
+`hero.jpg`, `selva-paranaense.jpg`, `cataratas-iguazu.jpg`, `especie-yaguarete.jpg`,
+`especie-tapir.jpg`, `especie-mono-caraya.jpg`, `especie-oso-hormiguero.jpg`,
+`especie-pecari.jpg`, `especie-aguila-harpia.jpg`, `especie-tucan.jpg`,
+`especie-maracana.jpg`, `especie-lapacho.jpg`, `especie-palo-rosa.jpg`,
+`especie-araucaria.jpg`, `favicon.svg`.
+
+Nota: `hero.jpg` es una versión optimizada (2000 px, ~600 KB) de `hero.png`
+—el archivo original que subiste pesaba 16 MB, demasiado para una página web—.
 
 ## Ya no se usan (se pueden borrar)
 
 `corredor-verde.jpg`, `fauna-yaguarete.jpg`, `yagua1.jpg`, `logo.png`,
-`flor-ecologia.png` — las secciones Corredor Verde y Fauna se sacaron y el logo
-volvió a ser texto.
+`flor-ecologia.png`, `hero.png` (ya está optimizado como `hero.jpg`) — las
+secciones Corredor Verde y Fauna se sacaron y el logo volvió a ser texto.
 
 ## Cómo agregar una imagen
 
