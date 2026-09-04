@@ -11,8 +11,21 @@ Para las fichas de especies alcanza con 800×800 px.
 
 | Archivo | Dónde aparece | Proporción | Estado |
 |---|---|---|---|
+| `hero-mobile.jpg` | Portada, solo en celular (pantallas ≤700px) | **1080×1920 px** (vertical, 9:16) | Mientras no esté, en celular se ve el marcador |
 | `og-image.jpg` | Miniatura al compartir en redes / WhatsApp | 1200×630 px | Puede ser `hero.jpg` recortada |
 | `video-portada.jpg` | Portada del reproductor de video | 16:9, ~1600 px | Si falta, usa la miniatura de YouTube |
+
+### Sobre `hero-mobile.jpg`
+
+La portada de celular es una imagen aparte de la de escritorio (`hero.jpg`), para
+poder encuadrarla vertical en vez de recortar la panorámica del medio.
+
+- **Tamaño: 1080 × 1920 px, vertical (formato pantalla de celular, 9:16).**
+- Dejá lo más importante de la foto en el **tercio superior**: la parte de abajo
+  queda más tapada por el degradado oscuro donde va el texto.
+- Formato JPG; no hace falta que la optimicen ellos, yo la comprimo al subirla.
+- En pantallas de más de 700px de ancho (tablet/notebook) se sigue usando
+  `hero.jpg`.
 
 ## Ya están (todas las de contenido)
 

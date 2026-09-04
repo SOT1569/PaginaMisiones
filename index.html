@@ -53,7 +53,18 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <img class="hero-bg" data-img="hero" src="assets/img/hero.png" alt="" aria-hidden="true" />
+    <img class="hero-bg" data-img="hero" alt="" aria-hidden="true"
+         data-hero-desktop="assets/img/hero.jpg" data-hero-mobile="assets/img/hero-mobile.jpg" />
+    <script>
+      // Elige la imagen de portada según el ancho de pantalla ANTES de que el
+      // navegador la pida, para no descargar las dos. hero-mobile.jpg todavía
+      // no existe: mientras tanto, en celular se ve el marcador "imagen pendiente".
+      (function () {
+        var img = document.currentScript.previousElementSibling;
+        var mobile = window.matchMedia('(max-width: 700px)').matches;
+        img.src = mobile ? img.dataset.heroMobile : img.dataset.heroDesktop;
+      })();
+    </script>
     <div class="hero-overlay"></div>
     <div class="wrap hero-content">
       <p class="eyebrow">Provincia de Misiones · Argentina</p>
