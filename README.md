@@ -1,8 +1,8 @@
-# Misiones · Naturaleza que trasciende fronteras
+# Misiones · Tierra de biodiversidad
 
 Landing page institucional sobre la conservación de la biodiversidad en la provincia
-de Misiones (Selva Paranaense, Corredor Verde, Áreas Naturales Protegidas y fauna
-silvestre).
+de Misiones. Secciones: introducción, Misiones en datos, Selva Paranaense,
+Biodiversidad, mapa interactivo, Cataratas del Iguazú y video.
 
 ## Stack
 
@@ -61,6 +61,14 @@ Verdes tomados del sitio de referencia *Adoptá un árbol*. Definidos como varia
 CSS (`--verde-oscuro`, `--verde-medio`, `--verde-claro`, etc.) al inicio de la hoja
 de estilos.
 
+## Video
+
+Va en la sección "Video". Recomendado: subirlo a YouTube (oculto o público) y
+embeberlo. En `index.html`, dentro de `#video`, hay un `<iframe>` de ejemplo
+comentado: se reemplaza el bloque `.video-frame` por ese iframe con el ID del video.
+No subir el archivo de video al repo (límite de 100 MB por archivo en GitHub).
+
 ## Contenido
 
-El texto proviene del documento oficial de la provincia (`info p pagina.pdf`).
+El texto proviene de los documentos oficiales de la provincia
+(`info p pagina.pdf` e `info 2.pdf`).

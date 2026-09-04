@@ -48,7 +48,7 @@
   document.querySelectorAll('img[data-img]').forEach(function (img) {
     img.addEventListener('error', function handle() {
       img.removeEventListener('error', handle);
-      var dark = img.dataset.img === 'hero' || img.dataset.img === 'areas';
+      var dark = img.dataset.img === 'hero' || img.dataset.img === 'cataratas';
       img.src = placeholder(img.getAttribute('alt') || '', dark);
       img.classList.add('img-placeholder');
     });
@@ -80,7 +80,8 @@
 
   /* ---------- Reveal + disparo de contadores ---------- */
   var revealTargets = document.querySelectorAll(
-    '.section-head, .split-text, .split-media, .stat, .species-card, .on-dark, .closing .wrap'
+    '.section-head, .feature-media, .feature-text, .intro-block, .stat, ' +
+    '.species-card, .on-dark, .video-frame, .video-embed, .closing .wrap'
   );
 
   if ('IntersectionObserver' in window && !reduceMotion) {

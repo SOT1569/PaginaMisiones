@@ -7,36 +7,36 @@ texto “imagen pendiente” en su lugar — no se rompe nada.
 Formato recomendado: **JPG** optimizado (calidad ~80), ancho máximo 2000 px, peso < 400 KB.
 Para las fichas de especies alcanza con 800×800 px.
 
-| Archivo | Dónde aparece | Proporción sugerida | Contenido ideal |
-|---|---|---|---|
-| `hero.jpg` | Fondo de portada (pantalla completa) | 16:9 apaisada, ~2000 px | Panorámica de selva / dosel de la Selva Paranaense |
-| `selva-paranaense.jpg` | Sección “El corazón verde de Misiones” | 4:3 | Interior de selva, helechos, luz entre los árboles |
-| `corredor-verde.jpg` | Sección “Corredor Verde” | 4:3 | Vista aérea de bosque continuo / río Paraná |
-| `areas-protegidas.jpg` | Fondo oscuro de “Áreas Naturales Protegidas” | 16:9 apaisada | Parque provincial, cartel de reserva, Yabotí |
-| `fauna-yaguarete.jpg` | Sección “Fauna Silvestre” | 4:3 | Yaguareté (foto de cámara trampa o de fauna) |
-| `especie-yaguarete.jpg` | Ficha de especie | 1:1 | Retrato de yaguareté |
-| `especie-tapir.jpg` | Ficha de especie | 1:1 | Tapir |
-| `especie-mono-caraya.jpg` | Ficha de especie | 1:1 | Mono carayá |
-| `especie-oso-hormiguero.jpg` | Ficha de especie | 1:1 | Oso hormiguero |
-| `especie-pecari.jpg` | Ficha de especie | 1:1 | Pecarí |
-| `especie-aguila-harpia.jpg` | Ficha de especie | 1:1 | Águila harpía |
-| `especie-tucan.jpg` | Ficha de especie | 1:1 | Tucán |
-| `especie-maracana.jpg` | Ficha de especie | 1:1 | Maracaná |
-| `og-image.jpg` | Miniatura al compartir en redes / WhatsApp | 1200×630 px | Puede ser la misma que `hero.jpg` recortada |
-| `favicon.svg` | Ícono de la pestaña | — | Ya incluido (se puede reemplazar) |
+## Faltan / hay que cambiar
 
-## Cómo agregar una imagen nueva
+| Archivo | Dónde aparece | Proporción | Estado |
+|---|---|---|---|
+| `hero.jpg` | Fondo de portada | 16:9 apaisada, ~2000 px | **Cambiar** por la nueva del Drive |
+| `selva-paranaense.jpg` | Sección “El corazón verde de Misiones” | 16:9 apaisada | **Cambiar** por la nueva del Drive |
+| `cataratas-iguazu.jpg` | Fondo de la sección “Cataratas del Iguazú” | 16:9 apaisada | **Falta** (del Drive) |
+| `especie-lapacho.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — lapacho negro |
+| `especie-palo-rosa.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — palo rosa |
+| `especie-araucaria.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — araucaria misionera |
+| `og-image.jpg` | Miniatura al compartir en redes / WhatsApp | 1200×630 px | **Falta** (puede ser `hero.jpg` recortada) |
+
+## Ya están
+
+`especie-yaguarete.jpg`, `especie-tapir.jpg`, `especie-mono-caraya.jpg`,
+`especie-oso-hormiguero.jpg`, `especie-pecari.jpg`, `especie-aguila-harpia.jpg`,
+`especie-tucan.jpg`, `especie-maracana.jpg`, `favicon.svg`.
+
+## Ya no se usan (se pueden borrar)
+
+`corredor-verde.jpg`, `fauna-yaguarete.jpg`, `yagua1.jpg`, `logo.png`,
+`flor-ecologia.png` — las secciones Corredor Verde y Fauna se sacaron y el logo
+volvió a ser texto.
+
+## Cómo agregar una imagen
 
 1. Guardá el archivo en `assets/img/` con el nombre de la tabla.
-2. Si querés cambiar el nombre, editá el `src` correspondiente en `index.html`.
-3. Subí los cambios a GitHub (`git add`, `git commit`, `git push`).
+2. Subí los cambios a GitHub (`git add`, `git commit`, `git push`).
 
-## Créditos / licencias
+## Video
 
-Usá solo imágenes propias, de organismos oficiales, o con licencia libre
-(por ejemplo del Ministerio de Ecología de Misiones, APN, o bancos con licencia CC).
-Anotá la fuente de cada foto acá abajo:
-
-- hero.jpg —
-- selva-paranaense.jpg —
-- ...
+Va en la sección “Video”. Subilo a YouTube y pasá el ID; se reemplaza el bloque
+`.video-frame` de `index.html` por el `<iframe>` (ya está el ejemplo comentado ahí).
