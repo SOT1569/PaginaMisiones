@@ -38,14 +38,14 @@ volvió a ser texto.
 
 ## Video
 
-Va en la sección “Video”. En `index.html`, en `<div class="video" data-youtube="">`,
-poné el **ID de YouTube** (los 11 caracteres después de `watch?v=`) dentro de las
-comillas. Listo.
+Va en la sección “Video”. En `index.html`, en `<div class="video" data-vimeo="">`,
+poné el **ID de Vimeo** (los números al final de la URL, p. ej.
+`vimeo.com/1084537` → `1084537`) dentro de las comillas. Listo.
 
-- Antes de que el visitante haga clic no se ve nada de YouTube: solo una portada y
-  un botón de play.
+- Antes de que el visitante haga clic no se carga nada de Vimeo: solo una portada
+  y un botón de play.
+- El reproductor va con `title=0&byline=0&portrait=0`: **no muestra el título ni
+  quién lo subió**.
 - Portada: subí `video-portada.jpg` (16:9, ~1600 px). Si no está, usa la miniatura
-  automática de YouTube.
-- Nota: cuando el video ya está reproduciéndose, YouTube muestra el título y el
-  nombre del canal arriba al pasar el mouse. Eso no se puede sacar de un embed de
-  YouTube. Si hace falta que no aparezca **nada** del que subió, usar Vimeo.
+  automática de Vimeo.
+- Subí el video como **"no listado"** (unlisted) si no querés que aparezca en Vimeo.

@@ -107,25 +107,45 @@
     });
   }
 
-  /* ---------- Video de YouTube (con portada propia) ----------
-     Solo se carga el reproductor de YouTube cuando el visitante hace clic.
-     Hasta entonces se ve una portada propia + botón de play, sin nada de
-     YouTube (ni nombre de canal, ni "ver en YouTube", ni cookies).          */
-  var videoBox = document.querySelector('.video[data-youtube]');
+  /* ---------- Video de Vimeo (con portada propia) ----------
+     Solo se carga el reproductor de Vimeo cuando el visitante hace clic.
+     Hasta entonces se ve una portada propia + botón de play. El reproductor
+     va configurado para no mostrar título, autor ni avatar.                 */
+  var videoBox = document.querySelector('.video[data-vimeo]');
   if (videoBox) {
-    var ytId = (videoBox.dataset.youtube || '').trim();
-    if (ytId) {
-      var ytTitle = videoBox.dataset.title || 'Video';
+    var vimeoId = (videoBox.dataset.vimeo || '').replace(/\D/g, '');
+    if (vimeoId) {
+      var vTitle = videoBox.dataset.title || 'Video';
 
       var facade = document.createElement('button');
       facade.type = 'button';
       facade.className = 'video-facade';
-      facade.setAttribute('aria-label', 'Reproducir el video: ' + ytTitle);
-      facade.innerHTML =
-        '<img class="video-poster" alt="" src="assets/img/video-portada.jpg" ' +
-        'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/' + ytId + '/hqdefault.jpg\'">' +
-        '<span class="video-play" aria-hidden="true"></span>';
+      facade.setAttribute('aria-label', 'Reproducir el video: ' + vTitle);
 
+      var poster = document.createElement('img');
+      poster.className = 'video-poster';
+      poster.alt = '';
+      poster.addEventListener('error', function onPosterError() {
+        poster.removeEventListener('error', onPosterError);
+        // Sin portada propia: usar la miniatura oficial de Vimeo.
+        fetch('https://vimeo.com/api/oembed.json?url=' + encodeURIComponent('https://vimeo.com/' + vimeoId))
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && d.thumbnail_url) {
+              poster.onerror = function () { poster.remove(); };
+              poster.src = d.thumbnail_url;
+            } else { poster.remove(); }
+          })
+          .catch(function () { poster.remove(); });
+      });
+      poster.src = 'assets/img/video-portada.jpg';
+
+      var play = document.createElement('span');
+      play.className = 'video-play';
+      play.setAttribute('aria-hidden', 'true');
+
+      facade.appendChild(poster);
+      facade.appendChild(play);
       videoBox.innerHTML = '';
       videoBox.appendChild(facade);
 
@@ -133,10 +153,10 @@
         var embed = document.createElement('div');
         embed.className = 'video-embed';
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId +
-          '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
-        iframe.title = ytTitle;
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.src = 'https://player.vimeo.com/video/' + vimeoId +
+          '?title=0&byline=0&portrait=0&dnt=1&autoplay=1';
+        iframe.title = vTitle;
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture';
         iframe.setAttribute('allowfullscreen', '');
         embed.appendChild(iframe);
         videoBox.replaceChild(embed, facade);
