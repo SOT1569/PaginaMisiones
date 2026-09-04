@@ -13,7 +13,7 @@ Para las fichas de especies alcanza con 800×800 px.
 |---|---|---|---|
 | `hero.jpg` | Fondo de portada | 16:9 apaisada, ~2000 px | **Cambiar** por la nueva del Drive |
 | `selva-paranaense.jpg` | Sección “El corazón verde de Misiones” | 16:9 apaisada | **Cambiar** por la nueva del Drive |
-| `cataratas-iguazu.jpg` | Fondo de la sección “Cataratas del Iguazú” | 16:9 apaisada | **Falta** (del Drive) |
+| `cataratas-iguazu.jpg` | Foto grande de la sección “Cataratas del Iguazú” | 16:9 apaisada | **Falta** (del Drive) |
 | `especie-lapacho.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — lapacho negro |
 | `especie-palo-rosa.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — palo rosa |
 | `especie-araucaria.jpg` | Ficha de especie (flora) | 1:1 | **Falta** — araucaria misionera |

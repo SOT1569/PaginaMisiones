@@ -344,8 +344,7 @@ img.img-missing::after {
   font-family: var(--font-body); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
   color: var(--texto-suave); text-align: center; padding: 1rem;
 }
-img.img-missing[data-img="hero"]::after,
-img.img-missing[data-img="cataratas"]::after { color: rgba(255,255,255,.85); }
+img.img-missing[data-img="hero"]::after { color: rgba(255,255,255,.85); }
 
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }

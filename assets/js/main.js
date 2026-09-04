@@ -46,12 +46,21 @@
   }
 
   document.querySelectorAll('img[data-img]').forEach(function (img) {
-    img.addEventListener('error', function handle() {
+    function handle() {
       img.removeEventListener('error', handle);
-      var dark = img.dataset.img === 'hero' || img.dataset.img === 'cataratas';
+      var dark = img.dataset.img === 'hero';
       img.src = placeholder(img.getAttribute('alt') || '', dark);
       img.classList.add('img-placeholder');
-    });
+    }
+    // El script es "defer": si la imagen ya terminó de intentar cargar (y
+    // falló) antes de que este código corra, el evento "error" ya pasó y
+    // nunca lo veríamos. naturalWidth 0 con complete=true es la señal de
+    // que falló.
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      handle();
+    } else {
+      img.addEventListener('error', handle);
+    }
   });
 
   /* ---------- Contadores animados ---------- */
